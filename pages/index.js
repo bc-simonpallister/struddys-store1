@@ -1,7 +1,7 @@
 import React from "react";
 import { useSession, signIn, signOut } from "next-auth/client"
 import Link from "next/link";
-import ProductListing from "../components/ProductListing";
+import ProductListing from "../components/productlisting";
 
 
 export default function Index({products}) {
@@ -13,16 +13,8 @@ export default function Index({products}) {
 
   return (
     <>
-      {!session && (
-        <>
-          Not signed in <br />
-          <button onClick={signIn}>Sign in</button>
-        </>
-      )}
       {session && (
         <>
-          Signed in as {session.user.name} <br />
-          <button onClick={signOut}>Sign out</button>
           <ProductListing products={products}/>
         </>
       )}
