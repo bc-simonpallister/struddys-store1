@@ -1,8 +1,5 @@
-import React from "react";
 import { useSession, signIn, signOut } from "next-auth/client"
-import Link from "next/link";
-import ProductListing from "../components/productlisting";
-
+import ProductListing from "../components/productlisting"
 
 export default function Index({products}) {
   const [ session, loading ] = useSession()
