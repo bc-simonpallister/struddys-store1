@@ -1,5 +1,5 @@
 import { useSession, signIn, signOut } from "next-auth/client"
-import ProductListing from "../components/productlisting"
+import ProductListing from "../components/listing"
 
 export default function Index({products}) {
   const [ session, loading ] = useSession()
