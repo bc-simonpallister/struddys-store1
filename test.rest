@@ -1,0 +1,9 @@
+GET http://localhost:3000/api/category/24
+Accept: application/json
+Content-type: application/json
+
+
+###
+GET http://localhost:3000/api/product/119
+Accept: application/json
+Content-type: application/json
