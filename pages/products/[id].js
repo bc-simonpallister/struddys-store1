@@ -16,10 +16,17 @@ export default function Product({data, options}) {
 
   const [ session, loading ] = useSession()
   const router = useRouter()
+  
+  if (loading) {
+    return (<></>)
+  }
 
   if (!session && typeof window !== 'undefined'){
-    router.push('/')  
+    router.push('/') 
+    return null 
   }
+
+  console.log(session)
 
   return (
     <div>

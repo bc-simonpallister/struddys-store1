@@ -1,6 +1,7 @@
 import Providers from 'next-auth/providers'
 import { gql, GraphQLClient } from 'graphql-request'
 import NextAuth from 'next-auth'
+import { getClientBuildManifest } from 'next/dist/client/route-loader'
 
 const endpoint = process.env.GRAPHQL_ENDPOINT
 const query = gql`
@@ -11,9 +12,17 @@ const query = gql`
         entityId
         firstName
         lastName
+        company
         email
+        customerGroupId
+        attributes {
+          attribute(entityId:1) {
+            name
+            value
+          }
+        }
       }
-      }
+    }
   }
 `
 
@@ -44,16 +53,23 @@ const options = {
         
         if(data.login.result === 'success'){
           console.log(data.login)
-          //return { id: 1, name: 'J Smith', email: 'jsmith@example.com' }
-          //return data.login.customer
+
           const { customer } = data.login
+
+          // if(customer.customerGroupId !== Number(process.env.CUSTOMER_GROUP_ID)){
+          //   return false
+          // }
+          const clubs = customer.company.split(',')
+          console.log(clubs)
+          if(!clubs.includes(process.env.CATEGORY_ID)) {
+            return false
+          }
           return {
             id: customer.entityId,
             name: `${customer.firstName} ${customer.lastName}`,
             email: customer.email
           }
         }
-
         return null
       }
     })
@@ -61,24 +77,6 @@ const options = {
   jwt: {
     signingKey: process.env.JWT_SIGNING_PRIVATE_KEY,
   },
-  // pages: {
-  //   signIn: "/"
-  // },
-  // callbacks: {
-  //   async jwt(token, user) {
-  //     if (user) {
-  //       token.accessToken = user.token
-  //     }
-  
-  //     return token
-  //   },
-  
-  //   async session(session, token) {
-  //     session.accessToken = token.accessToken
-  //     return session
-  //   }
-  
-  // }
 }
 
 export default (req, res) => NextAuth(req, res, options)
