@@ -1,4 +1,4 @@
-import Providers from 'next-auth/providers'
+[import Providers from 'next-auth/providers'
 import { gql, GraphQLClient } from 'graphql-request'
 import NextAuth from 'next-auth'
 import { getClientBuildManifest } from 'next/dist/client/route-loader'
@@ -79,4 +79,4 @@ const options = {
   },
 }
 
-export default (req, res) => NextAuth(req, res, options)
+export default (req, res) => NextAuth(req, res, options)]
