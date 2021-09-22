@@ -61,9 +61,9 @@ const options = {
           // }
           const clubs = customer.company.split(',')
           console.log(clubs)
-          if(!clubs.includes(process.env.CATEGORY_ID)) {
-            return false
-          }
+          // if(!clubs.includes(process.env.CATEGORY_ID)) {
+          //   return false
+          // }
           return {
             id: customer.entityId,
             name: `${customer.firstName} ${customer.lastName}`,
@@ -79,4 +79,4 @@ const options = {
   },
 }
 
-export default (req, res) => NextAuth(req, res, options)]
+export default (req, res) => NextAuth(req, res, options)

@@ -6,11 +6,11 @@ const Navbar = () => {
   const [ session, loading ] = useSession()
 
   return (
-    <nav className="bg-black w-full p-3">
-      <div className="flex flex-row text-white">
+    <nav className="bg-gray-200 w-full p-3">
+      <div className="flex flex-row text-gray-600">
         <div className="flex-1">
           <Link href="/">
-            <a><Image src="/logo.png" width="158" height="45" /></a>
+            <a><Image src="/logo.png" width="100" height="85" /></a>
           </Link>
         </div>
         <div className="p-3 uppercase text-xl">

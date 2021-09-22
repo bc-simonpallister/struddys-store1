@@ -29,7 +29,7 @@ export default function Index({products, category}) {
         {head}
         <div className="flex">
           <div className="mr-5">
-            <Image src={category.image_url} width="100" height="142"/>
+            <Image src={category.image_url} width="197" height="50"/>
           </div>
           <div className="text-7xl">
             <h1>{category.name}</h1>

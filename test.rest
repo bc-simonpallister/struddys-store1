@@ -24,8 +24,8 @@ Content-type: application/json
 ]
 
 ###
-POST https://api.bigcommerce.com/stores/ool39ii0tw/v3/storefront/api-token
-X-Auth-Token: h52k4mds7n8cn4l195nuof00k0drpcu
+POST https://api.bigcommerce.com/stores/sn8rz5r2c0/v3/storefront/api-token
+X-Auth-Token: ih9gyqqu3cmkqe3ocq0lrfwde79uzl1
 Accept: application/json
 Content-type: application/json
 
